@@ -6,11 +6,15 @@
 [![Java Version](https://img.shields.io/badge/Java-17+-brightgreen.svg)](https://openjdk.java.net/)
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.2+-brightgreen.svg)](https://spring.io/projects/spring-boot)
 
-A comprehensive **Personal Finance Management API** built with **Spring Boot** and **AWS**, designed to demonstrate enterprise-grade financial software development practices. This project showcases secure transaction processing, regulatory compliance, and modern cloud deployment patterns.
+A comprehensive **Personal Finance Management API** built with **Spring Boot** and **AWS**, designed to demonstrate
+enterprise-grade financial software development practices. This project showcases secure transaction processing,
+regulatory compliance, and modern cloud deployment patterns.
 
 ## 🎯 Project Overview
 
-FinTrack is a RESTful API that enables users to manage their personal finances through secure account management, transaction processing, budget tracking, and financial reporting. Built with a focus on **financial precision**, **security**, and **regulatory compliance**.
+FinTrack is a RESTful API that enables users to manage their personal finances through secure account management,
+transaction processing, budget tracking, and financial reporting. Built with a focus on **financial precision**, *
+*security**, and **regulatory compliance**.
 
 ### Key Features
 
@@ -53,6 +57,7 @@ FinTrack is a RESTful API that enables users to manage their personal finances t
 ## 🛠️ Technology Stack
 
 ### Backend
+
 - **Java 17+** - Modern Java features with records, pattern matching
 - **Spring Boot 3.2+** - Enterprise application framework
 - **Spring Security 6** - Authentication and authorization
@@ -61,11 +66,13 @@ FinTrack is a RESTful API that enables users to manage their personal finances t
 - **Spring Actuator** - Production monitoring and health checks
 
 ### Database
+
 - **PostgreSQL 15+** - Primary database with advanced indexing
 - **H2** - In-memory database for testing
 - **HikariCP** - High-performance connection pooling
 
 ### Cloud & DevOps
+
 - **AWS EC2** - Application hosting
 - **AWS RDS** - Managed PostgreSQL database
 - **AWS S3** - Document and receipt storage
@@ -74,6 +81,7 @@ FinTrack is a RESTful API that enables users to manage their personal finances t
 - **Docker** - Containerization for consistent deployments
 
 ### Documentation & Testing
+
 - **Swagger/OpenAPI 3.0** - Interactive API documentation
 - **JUnit 5** - Unit testing framework
 - **Mockito** - Mocking framework for tests
@@ -129,9 +137,9 @@ FinTrack is a RESTful API that enables users to manage their personal finances t
    ```
 
 5. **Access the API**
-   - **API Base URL**: http://localhost:8080/api/v1
-   - **Swagger UI**: http://localhost:8080/swagger-ui/index.html
-   - **Health Check**: http://localhost:8080/actuator/health
+    - **API Base URL**: http://localhost:8080/api/v1
+    - **Swagger UI**: http://localhost:8080/swagger-ui/index.html
+    - **Health Check**: http://localhost:8080/actuator/health
 
 ### Quick Test with cURL
 
@@ -159,12 +167,14 @@ curl -X POST http://localhost:8080/api/v1/auth/login \
 ### Core Endpoints
 
 #### Authentication
+
 - `POST /api/v1/auth/register` - User registration
 - `POST /api/v1/auth/login` - User login
 - `POST /api/v1/auth/refresh` - Token refresh
 - `POST /api/v1/auth/logout` - User logout
 
 #### Account Management
+
 - `GET /api/v1/accounts` - List user accounts
 - `POST /api/v1/accounts` - Create new account
 - `GET /api/v1/accounts/{id}` - Get account details
@@ -172,12 +182,14 @@ curl -X POST http://localhost:8080/api/v1/auth/login \
 - `DELETE /api/v1/accounts/{id}` - Close account
 
 #### Transactions
+
 - `GET /api/v1/transactions` - List transactions with filtering
 - `POST /api/v1/transactions` - Create new transaction
 - `GET /api/v1/transactions/{id}` - Get transaction details
 - `GET /api/v1/transactions/{id}/audit` - Get transaction audit history
 
 #### Budget Management
+
 - `GET /api/v1/budgets` - List budgets
 - `POST /api/v1/budgets` - Create budget
 - `GET /api/v1/budgets/{id}` - Get budget details
@@ -185,6 +197,7 @@ curl -X POST http://localhost:8080/api/v1/auth/login \
 - `GET /api/v1/budgets/{id}/spending` - Get spending against budget
 
 #### Financial Reports
+
 - `GET /api/v1/reports/spending` - Spending analysis
 - `GET /api/v1/reports/income` - Income analysis
 - `GET /api/v1/reports/balance-sheet` - Balance sheet report
@@ -202,6 +215,7 @@ curl -H "Authorization: Bearer your-jwt-token" \
 ### Request/Response Examples
 
 #### Create Transaction
+
 ```json
 POST /api/v1/transactions
 {
@@ -218,6 +232,7 @@ POST /api/v1/transactions
 ```
 
 #### Response
+
 ```json
 {
   "transactionId": "txn_987654321",
@@ -239,18 +254,21 @@ POST /api/v1/transactions
 ## 🔒 Security Features
 
 ### Authentication & Authorization
+
 - **JWT-based authentication** with configurable expiration
 - **Role-based access control** (RBAC) for different user types
 - **Rate limiting** to prevent abuse and ensure fair usage
 - **CORS configuration** for secure cross-origin requests
 
 ### Data Protection
+
 - **Password hashing** using BCrypt with salt rounds
 - **Input validation** and sanitization for all endpoints
 - **SQL injection prevention** through parameterized queries
 - **XSS protection** with proper input encoding
 
 ### Financial Security
+
 - **Immutable transactions** - financial records cannot be modified
 - **Double-entry bookkeeping** validation for accounting accuracy
 - **Decimal precision** handling to prevent rounding errors
@@ -286,27 +304,30 @@ mvn test -Dgroups=performance
 
 Current test coverage: **85%+**
 
-| Module | Coverage |
-|--------|----------|
-| Controllers | 90% |
-| Services | 88% |
-| Repositories | 85% |
-| Security | 92% |
-| Utils | 87% |
+| Module       | Coverage |
+|--------------|----------|
+| Controllers  | 90%      |
+| Services     | 88%      |
+| Repositories | 85%      |
+| Security     | 92%      |
+| Utils        | 87%      |
 
 ## 📈 Monitoring & Observability
 
 ### Health Checks
+
 - **Application health** - Database connectivity, external services
 - **Custom health indicators** - Account balance validation, transaction processing
 - **Readiness probes** - For Kubernetes deployment readiness
 
 ### Metrics
+
 - **Business metrics** - Transaction volumes, account creation rates
 - **Technical metrics** - Response times, error rates, throughput
 - **Infrastructure metrics** - CPU, memory, database connections
 
 ### Logging
+
 - **Structured logging** with JSON format for easy parsing
 - **Correlation IDs** for request tracing across services
 - **Audit logs** for financial operations and security events
@@ -393,16 +414,19 @@ The repository includes a comprehensive CI/CD pipeline:
 ## 📚 Learning Resources
 
 ### Financial Domain Knowledge
+
 - [South African Reserve Bank Guidelines](https://www.resbank.co.za/)
 - [Financial Intelligence Centre Act (FICA)](https://www.fic.gov.za/)
 - [Protection of Personal Information Act (POPIA)](https://popia.co.za/)
 
 ### Technical Resources
+
 - [Spring Boot Documentation](https://spring.io/projects/spring-boot)
 - [AWS Documentation](https://docs.aws.amazon.com/)
 - [PostgreSQL Documentation](https://www.postgresql.org/docs/)
 
 ### Best Practices
+
 - [12-Factor App Methodology](https://12factor.net/)
 - [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
 - [Domain-Driven Design](https://martinfowler.com/tags/domain%20driven%20design.html)
@@ -429,7 +453,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🎯 About This Project
 
-This project was developed as part of a comprehensive **backend developer interview preparation** focused on **financial services** and **enterprise Java development**. It demonstrates:
+This project was developed as part of a comprehensive **backend developer interview preparation** focused on **financial
+services** and **enterprise Java development**. It demonstrates:
 
 - **Production-ready code** with proper error handling and validation
 - **Financial domain expertise** with regulatory compliance considerations
@@ -437,7 +462,8 @@ This project was developed as part of a comprehensive **backend developer interv
 - **Cloud-native architecture** with AWS integration
 - **DevOps best practices** with CI/CD and monitoring
 
-Perfect for showcasing skills in **banking**, **insurance**, and **fintech** domains where precision, security, and compliance are paramount.
+Perfect for showcasing skills in **banking**, **insurance**, and **fintech** domains where precision, security, and
+compliance are paramount.
 
 ---
 
